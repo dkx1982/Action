@@ -1,0 +1,55 @@
+<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+
+
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#bs-carousel" data-slide-to="1"></li>
+    <li data-target="#bs-carousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+        <!-- Overlay -->
+      <div class="overlay"></div>
+      <div class="slide-1"></div>
+
+      <div class="hero">
+        <hgroup>
+            <h1>成长往事</h1>
+            <h3>为你的爱情加入颜色  -  为你的友谊加入韵律  -  为你的故事加入感受</h3>
+        </hgroup>
+            <%= link_to("Let's Action", products_path, :method => :get, class: "btn btn-lg btn-danger " ) %>
+
+      <!--  <%= link_to("Let's Action", products_path, :method => :get) %> -->
+      <!--  <button class="btn btn-hero btn-lg" role="button">Let's Action</button> -->
+      </div>
+    </div>
+    <div class="item slides">
+      <!-- Overlay -->
+    <div class="overlay"></div>
+      <div class="slide-2"></div>
+      <div class="hero">
+        <hgroup>
+            <h1>旅行记录</h1>
+            <h3>每一次旅途都会有不同的故事，将故事浸入记忆中才是照片的意义。</h3>
+        </hgroup>
+        <%= link_to("Let's Action", products_path, :method => :get, class: "btn btn-lg btn-danger " ) %>
+      </div>
+    </div>
+    <div class="item slides">
+      <!-- Overlay -->
+    <div class="overlay"></div>
+      <div class="slide-3"></div>
+      <div class="hero">
+        <hgroup>
+            <h1>商业宣传</h1>
+            <h3>来吧！这里能满足你所有需求，小清新、高科技、史诗制作、促销活动。</h3>
+        </hgroup>
+          <%= link_to("Let's Action", products_path, :method => :get, class: "btn btn-lg btn-danger " ) %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end
   #root 'products#index'
    root 'welcome#index'
+   resources :orders
    namespace :account do
      resources :orders
    end

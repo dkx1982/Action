@@ -7,6 +7,8 @@
     <% else %>
       <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
     <% end %>
+
+
   </div>
   <div class="col-md-3">
     <h2> <%= @product.title %> </h2>
@@ -15,6 +17,7 @@
         <%= @product.description %>
       </p>
     </div>
+    <p><%= link_to("视频展示", @product.ads)%></p>
     <div> 数量 : <%= @product.quantity %> </div>
     <div class="product-price"> ￥ <%= @product.price %> </div>
     <div class="pull-right">

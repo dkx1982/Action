@@ -46,6 +46,11 @@ gem 'aasm'
 gem 'figaro'
 gem 'fog-aws'
 
+gem 'ransack'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+gem 'seo_helper'
+
 
 
 group :development, :test do

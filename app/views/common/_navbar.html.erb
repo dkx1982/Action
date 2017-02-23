@@ -1,23 +1,51 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-		<%= link_to("Let's Action", root_path, class: "navbar-brand", id: "navbar-title") %>
+            <%= link_to("Let's Action", root_path, class: "navbar-brand", id: "navbar-title") %>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-        <li class="active">
-          <%= link_to("Products", products_path) %>
-        </li>
-      </ul>
+            <ul class="nav navbar-nav">
+                <li class="active" >
+                    <%= link_to("Products", products_path) %>
+                </li>
+                <!-- 搜素区域 -->
+                <!-- 全html的写法 -->
+                  <!-- <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                  </form> -->
+                <!-- 全Rails的写法，缺点页面无法控制    -->
+                <!-- <%= form_tag("/search", method: "get") do %>
+                <%= label_tag(:q, "Search for:") %>
+                <%= text_field_tag(:q) %>
+                <%= submit_tag("Search") %>
+                <% end %> -->
+
+                <li class="navbar-form navbar-left" >
+                  <%= search_form_for @q do |f| %>
+                  <%= f.label "搜索栏的名字", class: "dkx-label" %>
+                  <%= f.search_field :title_cont %>
+                  <%= f.submit %>
+                  <% end %>
+                </li>
+
+            </ul>
+
             <ul class="nav navbar-nav navbar-right">
-              <li>
-                <%= link_to carts_path do  %>
-                购物车 <i class="fa fa-shopping-cart"> </i> ( <%= current_cart.products.count %> )
-                <% end %>
-              </li>
+                <li>
+                    <%= link_to carts_path do  %>
+                    购物车
+                    <i class="fa fa-shopping-cart"></i>
+                    (
+                    <%= current_cart.products.count %>
+                    )
+                    <% end %>
+                </li>
                 <% if !current_user %>
                 <li><%= link_to("注册", new_user_registration_path) %>
                 </li>
@@ -29,17 +57,17 @@
                         <%= current_user.email %>
                         <b class="caret"></b>
                     </a>
-                    <ul class="dropdown-menu">
-                      <% if current_user.admin? %>
-                      <li>
-                        <%= link_to("Admin 选单", admin_products_path ) %>
-                      </li>
-                      <% end %>
-                      <li>
-                        <%= link_to("个人订单列表", account_orders_path ) %>
-                      </li>
+                    <ul class="dropdown-menu navbar-inverse">
+                        <% if current_user.admin? %>
                         <li>
-                          <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %>
+                            <%= link_to("Admin 选单", admin_products_path ) %>
+                        </li>
+                        <% end %>
+                        <li>
+                            <%= link_to("个人订单列表", account_orders_path ) %>
+                        </li>
+                        <li>
+                            <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %>
                         </li>
                     </ul>
                 </li>

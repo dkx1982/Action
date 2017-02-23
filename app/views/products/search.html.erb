@@ -9,14 +9,20 @@
     <div class="row product-show0"></div>
       <div class="product-table">
         <% @products.each do |product| %>
+        <!-- <%= search_form_for @q do |f| %> -->
+
         <div class="row products-show">
 
           <div class="col-md-12 col-lg-9 col-lg-offset-1">
 
             <div class="pull-right">
               发布时间：<%= product.title %>
+              <!-- <%= f.label :name_cont %> -->
             </div>
-            <p ><%= link_to(render_highlight_content(product, @query_string),product_path(product)) %></p>
+            <p >
+              <%= link_to(render_highlight_content(product, @query_string),product_path(product)) %>
+              <!-- <%= f.search_field :name_cont %> -->
+            </p>
 
           </div>
         </div>
